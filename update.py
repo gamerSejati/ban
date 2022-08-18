@@ -5,8 +5,8 @@ from requests import get as rget
 from dotenv import load_dotenv
 from sys import executable
 
-if ospath.exists('log.txt'):
-    with open('log.txt', 'r+') as f:
+if ospath.exists('log2.txt'):
+    with open('log2.txt', 'r+') as f:
         f.truncate(0)
 
 basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -20,7 +20,7 @@ try:
     try:
         res = rget(CONFIG_FILE_URL)
         if res.status_code == 200:
-            with open('config.env', 'wb+') as f:
+            with open('config2.env', 'wb+') as f:
                 f.write(res.content)
         else:
             log_error(f"Failed to download config.env {res.status_code}")
